@@ -62,9 +62,89 @@ const BATTLEFIELD =
 //         [X, null, O, X, O],
 //     ];
 
-//TODO: Check if the battle is over, and if so, announce the winner!
+//DONE: Check if the battle is over, and if so, announce the winner!
+
+let size = BATTLEFIELD.length;
+let winner = null;
+let winType = "";
 
 // Check Horizontal
+for (let i = 0; i < size; i++) {
+    let first = BATTLEFIELD[i][0];
+    if (first === null) continue;
+
+    let same = true;
+
+    for (let j = 1; j < size; j++) {
+        if (BATTLEFIELD[i][j] !== first) {
+            same = false;
+        }
+    }
+
+    if (same) {
+        winner = first;
+        winType = "horizontal";
+    }
+}
+
 // Check Vertical
+for (let j = 0; j < size; j++) {
+    let first = BATTLEFIELD[0][j];
+    if (first === null) continue;
+
+    let same = true;
+
+    for (let i = 1; i < size; i++) {
+        if (BATTLEFIELD[i][j] !== first) {
+            same = false;
+        }
+    }
+
+    if (same) {
+        winner = first;
+        winType = "vertical";
+    }
+}
+
 // Check Main Diagonal
+let firstMain = BATTLEFIELD[0][0];
+if (firstMain !== null) {
+    let same = true;
+
+    for (let i = 1; i < size; i++) {
+        if (BATTLEFIELD[i][i] !== firstMain) {
+            same = false;
+        }
+    }
+
+    if (same) {
+        winner = firstMain;
+        winType = "main diagonal";
+    }
+}
+
 // Check Anti Diagonal
+let firstAnti = BATTLEFIELD[0][size - 1];
+if (firstAnti !== null) {
+    let same = true;
+
+    for (let i = 1; i < size; i++) {
+        if (BATTLEFIELD[i][size - 1 - i] !== firstAnti) {
+            same = false;
+        }
+    }
+
+    if (same) {
+        winner = firstAnti;
+        winType = "anti diagonal";
+    }
+}
+
+
+if (winner !== null) {
+    console.log(winner + " wins (" + winType + ")");
+} else {
+    console.log("No winner yet.");
+}
+
+
