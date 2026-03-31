@@ -72,7 +72,7 @@ if (headline) {
 }
 
 /**
- * TODO 5:
+ * DONE 5:
  * You saved the day, again! I knew I could count on you. Our Website is restored,
  * our heroes are freed and there is no sign, Dr. DOM has ever done his evil.
  *
