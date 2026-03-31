@@ -14,7 +14,7 @@
  *     Bratlsoft - 2026-03-15
  *******************************************************/
 
-//TODO: Place one object here.
+//DONE: Place one object here.
 
 const SAVIOR = {
     name: "Leticia",
